@@ -42,7 +42,7 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section id="features" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-slate-800">
+    <section id="features" className="section min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-slate-800">
       <div className="container px-4 text-center max-w-7xl">
         <motion.h2 
           className="text-6xl font-bold text-white mb-16"

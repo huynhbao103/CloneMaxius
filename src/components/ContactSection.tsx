@@ -7,7 +7,7 @@ export default function ContactSection() {
   const { language } = useLanguage();
 
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 to-blue-900">
+    <section id="contact" className="section min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 to-blue-900">
       <div className="container px-4 text-center max-w-4xl">
         <motion.h2 
           className="text-6xl font-bold text-white mb-16"

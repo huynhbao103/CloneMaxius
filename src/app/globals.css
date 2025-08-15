@@ -1,18 +1,60 @@
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
+
+@import "tailwindcss";
 
 /* Additional custom styles */
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
+body::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+}
+
+/* Ẩn scrollbar cho tất cả elements */
+* {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE/Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+}
+
+/* Ẩn scrollbar cho body và html một cách mạnh mẽ */
+html, body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  overflow: -moz-scrollbars-none !important;
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+}
 .backgroundImage {
   background-image: url('/Images/hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+.bg-about{
+  background-image: url('/Images/about.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -32,6 +74,45 @@ section {
   height: 100vh;
 }
 
+/* Global scroll snapping for the entire page */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  scroll-snap-type: y mandatory;
+}
+
+/* Force each section to snap */
+section, .section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+/* Optimize scroll performance */
+* {
+  scroll-behavior: smooth;
+}
+
+
+
 /* Ensure navbar is always on top */
 .navbar-overlay {
   z-index: 9999 !important;
@@ -40,6 +121,28 @@ section {
 /* Custom scrollbar for navbar */
 .navbar-scroll::-webkit-scrollbar {
   width: 6px;
+}
+
+/* Custom font weights for navbar */
+.navbar-text-thin {
+  font-weight: 100 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-text-ultra-thin {
+  font-weight: 50 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force ultra thin text */
+.navbar-text-ultra-thin-force {
+  font-weight: 1 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-stretch: ultra-condensed;
+  letter-spacing: 0.1em;
 }
 
 .navbar-scroll::-webkit-scrollbar-track {
