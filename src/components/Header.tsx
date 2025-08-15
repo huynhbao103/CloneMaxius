@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -141,7 +141,7 @@ export default function Header() {
                          {/* Menu Items */}
              <div className="relative px-10 z-20 pt-[150px] pr-[50px] pb-[50px] pl-[32px]">
                {menuItems.map((item, index) => (
-                 <div key={index} className="mb-8">
+                 <div key={index} className="mb-6">
                    <button
                      onClick={() => setActiveSubmenu(activeSubmenu === item.label ? null : item.label)}
                                                                                                                                                                                                                                                                    className={`flex items-center justify-between w-full text-3xl md:text-4xl lg:text-3xl xl:text-4xl transition-colors cursor-pointer navbar-text-thin ${
@@ -160,13 +160,13 @@ export default function Header() {
                   
                    </button>
                    {activeSubmenu === item.label && (
-                     <div className="mt-2 ml-4">
+                     <div className="mt-1 ml-4">
                        {item.submenu?.map((subItem, subIndex) => (
                          <Link
                            key={subIndex}
                            href={subItem.href}
                            onClick={() => setIsOpen(false)}
-                        className="block text-base md:text-lg px-[10px] pt-[20px] text-white transition-colors mb-2 cursor-pointer navbar-text-thin"
+                        className="block text-sm md:text-base px-[10px] pt-[8px] text-white transition-colors mb-1 cursor-pointer navbar-text-thin"
                          >
                            {language === 'EN' ? subItem.label : subItem.labelKR}
                          </Link>
