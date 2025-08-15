@@ -1,178 +1,234 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useLanguage } from "../contexts/LanguageContext";
-import Image from "next/image";
+import { useState } from 'react';
+import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
+import Link from 'next/link';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Header() {
-  const [isNavOpen, setIsNavOpen] = useState(false);
-  const { language, toggleLanguage } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const { language, setLanguage } = useLanguage();
 
-  const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
-  };
+  const menuItems = [
+    { 
+      label: 'Home', 
 
-  const navItems = [
-    { id: 'hero', label: { EN: 'Home', KR: '홈' } },
-    { id: 'about', label: { EN: 'About', KR: '소개' } },
-    { id: 'features', label: { EN: 'Features', KR: '기능' } },
-    { id: 'contact', label: { EN: 'Contact', KR: '연락처' } }
+      href: '#home' 
+    },
+    {
+      label: 'Brochure',
+      
+      submenu: [
+        { label: 'HJS 2224', labelKR: 'HJS 2224', href: 'http://maxius.io/static/media/HJS2224.0c5cf3f7e8107d58642e.pdf' },
+        { label: 'TJS 2125G', labelKR: 'TJS 2125G', href: 'http://maxius.io/static/media/TJS%202125G.d68976120a89d298a526.pdf' },
+        { label: 'HGS 4024', labelKR: 'HGS 4024', href: 'http://maxius.io/static/media/HGS%204024.a9810b83c228def30ec6.pdf' },
+        { label: 'TJS 104S', labelKR: 'TJS 104S', href: 'http://maxius.io/static/media/TJS%20104S.9cd9749b5c199cc9cc94.pdf' },
+        { label: 'TJS 212S+', labelKR: 'TJS 212S+', href: 'http://maxius.io/static/media/TJS%20212S+.d3e64f195de5488c4ab1.pdf' },
+        { label: 'HSS 2224', labelKR: 'HSS 2224', href: 'http://maxius.io/static/media/HSS2224.52f995c6a8e725ef8131.pdf' },
+      ],
+    },
+    {
+      label: 'Proposal',
+   
+      submenu: [
+        { 
+          label: 'IPFS Data Center Development & Operation Consulting', 
+          labelKR: 'IPFS Data Center Development & Operation Consulting',
+          href: 'http://maxius.io/static/media/IPFS%20Data%20Center%20Development&Operation%20Consulting.19157e1a7d274a152169.pdf' 
+        },
+        { 
+          label: 'IPFS Data Center Build Vision', 
+          labelKR: 'IPFS Data Center Build Vision',
+          href: 'http://maxius.io/static/media/IPFS%20Data%20Center%20Build%20Vison.68960a3a96b70ee008a6.pdf' 
+        },
+        { 
+          label: 'Technology Application', 
+          labelKR: 'Technology Application',
+          href: 'http://maxius.io/static/media/Technology%20Application.9713a16d749b52a79634.pdf' 
+        },
+      ],
+    },
+    { 
+      label: 'Contact', 
+   
+      href: '#contact' 
+    },
   ];
-
-  const scrollToSection = (sectionId: string) => {
-    const targetElement = document.getElementById(sectionId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
 
   return (
     <>
-      {/* Header chính - LUÔN ở trên top */}
-      <div className="fixed top-0 left-0 right-0 z-[9999] bg-black/30 backdrop-blur-md border-b border-white/20">
-        <div className="p-4 flex justify-between items-center">
-          {/* Logo Maxius bên trái */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <Image 
-                src="/globe.svg" 
-                alt="Maxius Logo" 
-                width={24} 
-                height={24}
-                className="text-white"
-              />
-            </div>
-            <div className="text-2xl font-bold text-white">
-              <a href="#hero" className="hover:text-blue-300 transition-colors" onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('hero');
-              }}>Maxius</a>
-            </div>
+      <header className="fixed w-full top-0 left-0 right-0 z-[10000] bg-transparent">
+        <div className="w-full h-full flex justify-between items-center">
+          <div className="w-full h-full  mx-[100px] my-[50px] font-bold text-[20px] flex justify-start items-center">
+            MAXIUS
           </div>
+          <div className="w-full h-full mr-[100px] flex justify-end items-center">
+            <div className="flex flex-col items-center gap-2 text-[20px]">
+              {/* Animated Menu Button */}
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="relative w-[50px] h-[50px] flex items-center justify-center"
+              >
+                <div className="relative w-8 h-8">
+                  {/* FiMenu Icon */}
+                  <FiMenu 
+                    className={`absolute inset-0 transition-all duration-300 ease-in-out stroke-1 ${
+                      isOpen ? 'opacity-0 rotate-90 scale-75 text-white' : 'opacity-100 rotate-0 scale-100 text-black hover:text-gray-700'
+                    }`}
+                    size={48}
+                    strokeWidth={1}
+                  />
+                  {/* FiX Icon */}
+                  <FiX 
+                    className={`absolute inset-0 transition-all duration-300 ease-in-out stroke-1 ${
+                      isOpen ? 'opacity-100 rotate-0 scale-100 text-white' : 'opacity-0 rotate-90 scale-75 text-white'
+                    }`}
+                    size={48}
+                    strokeWidth={1}
+                  />
+                </div>
+              </button>
 
-          {/* Burger bar bên phải trên */}
-          <div className="flex items-center gap-3">
-            {/* Language switcher */}
-            <div className="flex gap-2">
-              <button 
-                className={`px-3 py-1 rounded text-sm font-medium transition-all ${language === 'EN' ? 'bg-blue-600 text-white shadow-lg' : 'bg-white/20 text-white hover:bg-white/30'}`}
-                onClick={() => toggleLanguage()}
-              >
-                EN
-              </button>
-              <button 
-                className={`px-3 py-1 rounded text-sm font-medium transition-all ${language === 'KR' ? 'bg-blue-600 text-white shadow-lg' : 'bg-white/20 text-white hover:bg-white/30'}`}
-                onClick={() => toggleLanguage()}
-              >
-                KR
-              </button>
+              {/* Language Switcher */}
+              <div className="flex items-center mt-[10px] text-6xl space-x-2">
+                <button
+                  onClick={() => setLanguage('EN')}
+                  className={`text-2xl transition-colors mr-[10px] navbar-text-ultra-thin-force ${
+                    isOpen
+                      ? language === 'EN' ? 'text-[#ff9933]' : 'text-gray-300 hover:text-[#ff9933]'
+                      : language === 'EN' ? 'text-[#ff9933]' : 'text-black hover:text-[#ff9933]'
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLanguage('KR')}
+                  className={`text-2xl transition-colors navbar-text-thin ${
+                    isOpen
+                      ? language === 'KR' ? 'text-[#ff9933]' : 'text-gray-300 hover:text-[#ff9933]'
+                      : language === 'KR' ? 'text-[#ff9933]' : 'text-black hover:text-[#ff9933]'
+                  }`}
+                >
+                  KR
+                </button>
+              </div>
             </div>
-
-            {/* Burger button */}
-            <button 
-              className="w-12 h-12 bg-black/50 rounded-lg flex flex-col justify-center items-center gap-1.5 hover:bg-black/70 transition-all duration-300 group border border-white/20"
-              onClick={toggleNav}
-            >
-              <span className={`w-7 h-0.5 bg-white transition-all duration-300 ${isNavOpen ? 'rotate-45 translate-y-2' : 'group-hover:bg-blue-400'}`}></span>
-              <span className={`w-7 h-0.5 bg-white transition-all duration-300 ${isNavOpen ? 'opacity-0' : 'group-hover:bg-blue-400'}`}></span>
-              <span className={`w-7 h-0.5 bg-white transition-all duration-300 ${isNavOpen ? '-rotate-45 -translate-y-2' : 'group-hover:bg-blue-400'}`}></span>
-            </button>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Navigation dots bên phải màn hình - LUÔN ở trên top */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-[9999] flex flex-col gap-4">
-        {navItems.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => scrollToSection(item.id)}
-            className="w-4 h-4 bg-white/80 rounded-full hover:bg-white hover:scale-125 transition-all cursor-pointer shadow-lg border border-white/20"
-            title={item.label[language]}
+      {/* Overlay + Navbar */}
+      {isOpen && (
+        <>
+          {/* Overlay */}
+          <div
+            className="fixed inset-0  transition-opacity duration-300"
+            onClick={() => setIsOpen(false)}
           />
-        ))}
-      </div>
 
-      {/* Full-screen navbar overlay - LUÔN ở trên top */}
-      <AnimatePresence>
-        {isNavOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/60 z-[9999] backdrop-blur-sm"
-              onClick={toggleNav}
-            />
+          <aside
+            className="fixed top-0 h-screen w-[530px] z-[9999] shadow-2xl overflow-hidden"
+            style={{ 
+              right: 0,
+              backgroundImage: 'url(/Images/navbar.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          >
             
-            {/* Navbar bên phải trượt từ phải sang trái */}
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-[9999] overflow-y-auto navbar-overlay navbar-scroll"
-            >
-              {/* Header của navbar */}
-              <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white shadow-lg">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                      <Image 
-                        src="/globe.svg" 
-                        alt="Maxius Logo" 
-                        width={24} 
-                        height={24}
-                        className="text-white"
-                      />
-                    </div>
-                    <div className="text-xl font-bold">Maxius</div>
-                  </div>
-                  <button 
-                    onClick={toggleNav}
-                    className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all"
-                  >
-                    <span className="text-white text-lg">×</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Navigation menu */}
-              <div className="p-6">
-                <nav className="space-y-2">
-                  {navItems.map((item) => (
-                    <button
-                      key={item.id}
-                      onClick={() => {
-                        scrollToSection(item.id);
-                        toggleNav();
-                      }}
-                      className="w-full text-left text-lg text-gray-700 hover:text-blue-600 transition-all py-3 px-4 rounded-lg hover:bg-blue-50 border-l-4 border-transparent hover:border-blue-500"
-                    >
-                      {item.label[language]}
-                    </button>
-                  ))}
-                </nav>
-
-                {/* Additional info */}
-                <div className="mt-8 pt-6 border-t border-gray-200">
-                  <div className="text-sm text-gray-500">
-                    <p className="mb-2">© 2024 Maxius</p>
-                    <p>Innovation & Technology</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+                         {/* Menu Items */}
+             <div className="relative px-10 z-20 pt-[150px] pr-[50px] pb-[50px] pl-[32px]">
+               {menuItems.map((item, index) => (
+                 <div key={index} className="mb-8">
+                   <button
+                     onClick={() => setActiveSubmenu(activeSubmenu === item.label ? null : item.label)}
+                                                                                                                                                                                                                                                                   className={`flex items-center justify-between w-full text-3xl md:text-4xl lg:text-3xl xl:text-4xl transition-colors cursor-pointer navbar-text-thin ${
+                            index === 0 ? 'text-[#f93]' : activeSubmenu === item.label ? 'text-[#f93]' : 'text-white'
+                          }`}
+                     style={{ 
+                       background: 'none',
+                       border: 'none',
+                       padding: '0',
+                       textAlign: 'left'
+                     }}
+                   >
+                     <span>
+                       {language === 'EN' ? item.label : item.label}
+                     </span>
+                  
+                   </button>
+                   {activeSubmenu === item.label && (
+                     <div className="mt-2 ml-4">
+                       {item.submenu?.map((subItem, subIndex) => (
+                         <Link
+                           key={subIndex}
+                           href={subItem.href}
+                           onClick={() => setIsOpen(false)}
+                        className="block text-base md:text-lg px-[10px] pt-[20px] text-white transition-colors mb-2 cursor-pointer navbar-text-thin"
+                         >
+                           {language === 'EN' ? subItem.label : subItem.labelKR}
+                         </Link>
+                       ))}
+                     </div>
+                   )}
+                 </div>
+               ))}
+                          </div>
+             
+             {/* Contact Information */}
+             <div className="absolute bottom-0 left-0 right-0 px-10 pb-10">
+               {/* Separator Line */}
+               <div className="w-full h-px bg-white mb-8"></div>
+               
+               {/* Contact Details */}
+               <div className="space-y-4 text-white/80">
+                 {/* Address */}
+                 <div className="text-[13px] leading-relaxed">
+                   <p>   {language === 'EN' ? '5F 12-30, Simin-daero 327beon-gil, Dongan-gu, Anyang-si, Gyeonggi-do, Republic of Korea' : '경기도 안양시 동안구 시민대로327번길 12-30 5층'}</p>
+                 
+                 
+               
+                   <p>Tel 02. 851. 2662 / Fax 02. 851. 2655</p>
+                 </div>
+                 
+                 {/* Map Link */}
+                 <div className="text-[13px]">
+                   <Link 
+                     href="/" 
+                     className="text-white/80 hover:text-[#ff9933] transition-colors cursor-pointer"
+                     onClick={() => setIsOpen(false)}
+                   >
+                     View Map
+                   </Link>
+                 </div>
+                 
+                 {/* Company Email */}
+                 <div className="text-[13px]">
+                   <p className='flex flex-col'>
+                     Company.{" "}
+                     <a href="mailto:support@maxius.io" className=" transition-colors">
+                       support@maxius.io
+                     </a>
+                   </p>
+                 </div>
+                 
+                 {/* Technical Support Email */}
+                 <div className="text-[13px]">
+                   <p className='flex flex-col'>
+                     Technical support.{" "}
+                     <a href="mailto:support@maxius.io" className="transition-colors">
+                       support@maxius.io
+                     </a>
+                   </p>
+                 </div>
+               </div>
+             </div>
+           
+           </aside>
+        </>
+      )}
     </>
   );
 }
-

@@ -7,7 +7,7 @@ export default function FooterSection() {
   const { language } = useLanguage();
 
   return (
-    <section id="footer" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 to-black">
+    <section id="footer" className="section min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 to-black">
       <div className="container px-4 text-center max-w-6xl">
         <motion.div 
           className="mb-16"

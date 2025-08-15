@@ -18,7 +18,7 @@ export default function Home() {
       <Header />
       <div className="scroll-container">
         <HeroSection />
-        <AboutSection />
+        <AboutSection currentSection={1} />
         <FeaturesSection />
         <ContactSection />
         <FooterSection />
