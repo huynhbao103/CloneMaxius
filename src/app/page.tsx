@@ -79,21 +79,27 @@ export default function Home() {
         <FooterSection />
       </div>
       
-      {/* Section Navigation Dots */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 space-y-4">
-        {sections.map((section, index) => (
-          <button
-            key={section.id}
-            onClick={() => scrollToSection(section.id)}
-            className={`w-2 h-2 flex flex-col  transition-all duration-300 ${
-              currentSection === index 
-                ? 'bg-[#ff9933] scale-125' 
-                : 'bg-white/50 hover:bg-white/80'
-            }`}
-            title={section.name}
-          />
-        ))}
-      </div>
+      
+      <div className="fixed right-25 top-1/2 transform -translate-y-1/2 z-50 space-y-1">
+  {sections.map((section, index) => (
+    <div className="flex flex-col items-end group relative" key={section.id}>
+      <button
+        onClick={() => scrollToSection(section.id)}
+        className={`
+          h-2 ransition-all duration-300 origin-right cursor-pointer
+          ${currentSection === index 
+            ? 'w-6 bg-[#ff9933] hover:w-8 shadow-lg' // Active: dài nhất, màu cam, có shadow
+            : 'w-2 bg-white hover:w-8 hover:bg-white/80 hover:shadow-md' // Hover: dài ra, có shadow
+          }
+        `}
+        title={section.name}
+      />
+    </div>
+  ))}
+</div>
+
+
+
     </div>
   );
 }
