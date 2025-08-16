@@ -3,7 +3,7 @@ import { LanguageProvider } from "../contexts/LanguageContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MAXIUS - High-Performance Server & Semiconductor Solutions",
+  title: "MAXIUS",
   description: "MAXIUS is the leading self-developed semiconductor company specializing in High-Performance Servers, IPFS Data Center solutions, Blockchain technology consulting, and innovative semiconductor solutions for modern businesses.",
   keywords: [
     "semiconductor",
@@ -20,11 +20,10 @@ export const metadata: Metadata = {
     "server solutions"
   ].join(", "),
   authors: [
-    { name: "MAXIUS Team" },
-    { name: "MAXIUS Development" }
+    { name: "Huynh Quoc Bao" },
   ],
-  creator: "MAXIUS",
-  publisher: "MAXIUS",
+  creator: "Huynh Quoc Bao",
+  publisher: "Huynh Quoc Bao",
   robots: {
     index: true,
     follow: true,
@@ -41,14 +40,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://maxius-huynhquocbao.vercel.app",
     siteName: "MAXIUS",
-    title: "MAXIUS - High-Performance Server & Semiconductor Solutions",
-    description: "Leading provider of high-performance servers, semiconductor solutions, and blockchain technology consulting.",
+    title: "MAXIUS",
+    description: "MAXIUS is the leading self-developed semiconductor company specializing in High-Performance Servers, IPFS Data Center solutions, Blockchain technology consulting, and innovative semiconductor solutions for modern businesses.",
     images: [
       {
         url: "/Images/hero.png",
         width: 1200,
         height: 630,
-        alt: "MAXIUS - High-Performance Server Solutions",
+        alt: "MAXIUS",
       },
     ],
   },
@@ -56,8 +55,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@maxius_io",
     creator: "@maxius_io",
-    title: "MAXIUS - High-Performance Server Solutions",
-    description: "Innovative semiconductor and blockchain solutions for modern businesses",
+    title: "MAXIUS",
+    description: "MAXIUS is the leading self-developed semiconductor company specializing in High-Performance Servers, IPFS Data Center solutions, Blockchain technology consulting, and innovative semiconductor solutions for modern businesses.",
     images: ["/Images/hero.png"],
   },
   viewport: {
