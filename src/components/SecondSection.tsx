@@ -43,22 +43,19 @@ const SecondSection = ({ currentSection }: SectionProps) => {
     return (
         <section
             id="section2"
-            className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
-            style={{
-                backgroundImage: 'url(/Images/about.png)',
-            }}
+            className="relative min-h-screen flex items-center justify-center bg-about"
         >
             <motion.div 
-                className="relative z-10 mx-auto px-2 sm:px-4 lg:px-6 max-w-7xl"
+                className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full"
                 animate={controls}
                 variants={containerVariants}
             >
                 <motion.div
-                    className="text-start"
+                    className="text-start max-w-full"
                     variants={textVariants}
                 >
                     {language === 'EN' ? (
-                        <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-[50.5px] max-w-6xl font-bold text-white cursor-text transition-all tracking-[0.02em] leading-[1.2] whitespace-pre-wrap break-all">
+                        <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-[50.5px] max-w-full font-bold text-white cursor-text transition-all tracking-[0.02em] leading-tight sm:leading-relaxed md:leading-relaxed lg:leading-relaxed xl:leading-[1.2] whitespace-normal break-words px-2 sm:px-4">
                             1. <span className="text-[#ff9933]">Self-produced</span> semiconductors{" "}
                             2. Production and Sales of <span className="text-[#ff9933]">H</span>igh-
                             <span className="text-[#ff9933]">P</span>erformance{" "}
@@ -69,22 +66,22 @@ const SecondSection = ({ currentSection }: SectionProps) => {
                             <span className="text-[#ff9933]">(IPFS)</span>
                         </p>
                     ) : (
-                        <div className="flex flex-col gap-4 justify-center text-justify text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-6xl max-w-6xl font-bold text-white cursor-text transition-all tracking-[0.02em] leading-[1.2] whitespace-pre-wrap break-all">
-                            <motion.div className="flex items-center" variants={textVariants}>
-                                <span className="w-8 flex-shrink-0 text-right mr-2">1. </span>
-                                <span><span className="text-[#ff9933]">자체 개발한 </span>시스템반도체</span>
+                        <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 justify-center text-start max-w-full px-2 sm:px-4">
+                            <motion.div className="flex items-start" variants={textVariants}>
+                                <span className="w-6 sm:w-8 flex-shrink-0 text-right mr-2 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-6xl">1. </span>
+                                <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-6xl max-w-full font-bold text-white cursor-text transition-all tracking-[0.02em] leading-tight sm:leading-relaxed md:leading-relaxed lg:leading-relaxed xl:leading-[1.2] whitespace-normal break-words"><span className="text-[#ff9933]">자체 개발한 </span>시스템반도체</span>
                             </motion.div>
-                            <motion.div className="flex items-center" variants={textVariants}>
-                                <span className="w-8 flex-shrink-0 text-right mr-2">2. </span>
-                                <span>고성능 서버<span className="text-[#ff9933]"> 제조 판매</span></span>
+                            <motion.div className="flex items-start" variants={textVariants}>
+                                <span className="w-6 sm:w-8 flex-shrink-0 text-right mr-2 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-6xl">2. </span>
+                                <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-6xl max-w-full font-bold text-white cursor-text transition-all tracking-[0.02em] leading-tight sm:leading-relaxed md:leading-relaxed lg:leading-relaxed xl:leading-[1.2] whitespace-normal break-words">고성능 서버<span className="text-[#ff9933]"> 제조 판매</span></span>
                             </motion.div>
-                            <motion.div className="flex items-center" variants={textVariants}>
-                                <span className="w-8 flex-shrink-0 text-right mr-2">3. </span>
-                                <span>HPS기반 IPFS <span className="text-[#ff9933]">IDC 구축사업</span></span>
+                            <motion.div className="flex items-start" variants={textVariants}>
+                                <span className="w-6 sm:w-8 flex-shrink-0 text-right mr-2 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-6xl">3. </span>
+                                <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-6xl max-w-full font-bold text-white cursor-text transition-all tracking-[0.02em] leading-tight sm:leading-relaxed md:leading-relaxed lg:leading-relaxed xl:leading-[1.2] whitespace-normal break-words">HPS기반 IPFS <span className="text-[#ff9933]">IDC 구축사업</span></span>
                             </motion.div>
-                            <motion.div className="flex items-center" variants={textVariants}>
-                                <span className="w-8 flex-shrink-0 text-right mr-2">4. </span>
-                                <span>블록체인 <span className="text-[#ff9933]">IPFS</span> 개발 및 운영 컨설팅</span>
+                            <motion.div className="flex items-start" variants={textVariants}>
+                                <span className="w-6 sm:w-8 flex-shrink-0 text-right mr-2 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-6xl">4. </span>
+                                <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-6xl max-w-full font-bold text-white cursor-text transition-all tracking-[0.02em] leading-tight sm:leading-relaxed md:leading-relaxed lg:leading-relaxed xl:leading-[1.2] whitespace-normal break-words">블록체인 <span className="text-[#ff9933]">IPFS</span> 개발 및 운영 컨설팅</span>
                             </motion.div>
                         </div>
                     )}

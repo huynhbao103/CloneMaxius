@@ -49,34 +49,35 @@ export default function FourSection({ currentSection }: SectionProps) {
   };
 
   return (
-    <section id="section4" className="flex items-center justify-center min-h-screen bg-white">
+    <section id="section4" className="flex items-center justify-center min-h-screen bg-white pt-20 lg:pt-0">
       <div className="w-full flex flex-col">
         <motion.h1
           initial="hidden"
           animate={controls}
           variants={titleVariant}
-          className="title text-[98.5px] font-bold text-black text-center py-8 shrink-0"
+          className="title text-4xl sm:text-6xl md:text-8xl lg:text-[98.5px] font-bold text-black text-center py-4 sm:py-6 md:py-8 shrink-0"
         >
           STORY
         </motion.h1>
+        
         <motion.div
           initial="hidden"
           animate={controls}
           variants={contentVariant}
-          className="carousel-container flex-1 overflow-y-auto px-4 pb-8"
+          className="carousel-container flex-1 overflow-x-auto lg:overflow-y-auto px-4 pb-8 scrollbar-hide"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          <div className="flex lg:grid lg:grid-cols-4 gap-4 lg:gap-8 max-w-none lg:max-w-7xl mx-auto lg:mx-auto">
             {/* History Column */}
-            <div className="w-[330px] lg:w-[330px] mx-auto">
-              <div className="item-history border-r border-gray-500 pr-8">
-                <div className="year mb-3">
-                  <h3 className="text-4xl font-bold text-black mb-4 ml-3">History</h3>
+            <div className="w-[280px] sm:w-[320px] lg:w-[330px] flex-shrink-0 lg:mx-auto">
+              <div className="item-history border-r border-gray-500 pr-4 lg:pr-8">
+                <div className="year mb-3 lg:mb-3">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-2 lg:mb-4 ml-2 lg:ml-3">History</h3>
                 </div>
-                <div className="h-[320px] overflow-y-auto">
-                  <div className="item-box space-y-6">
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">2021</h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                <div className="h-[280px] sm:h-[300px] lg:h-[320px] overflow-y-auto">
+                  <div className="item-box space-y-4 lg:space-y-6">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">2021</h4>
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             맥시우스로 사명 변경
@@ -92,9 +93,9 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">2020</h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">2020</h4>
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             인공지능기반 적응형 보안시스템 2차 구축
@@ -110,9 +111,9 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">2019</h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">2019</h4>
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             유전체 분석 시스템 반도체 개발 및 고성능
@@ -126,9 +127,9 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">2018</h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">2018</h4>
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             고성능 시스템 반도체를 이용한 소형슈퍼컴퓨터 개발
@@ -145,9 +146,9 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">2017</h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">2017</h4>
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             대기전력 저감 우수제품 확인(한국에너지공단)
@@ -164,9 +165,9 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">2016</h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">2016</h4>
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             방송통신기자재등의 적합등록 필증 획득(국립전파연구원)
@@ -184,9 +185,9 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">2015</h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">2015</h4>
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             IT 융합기업인상 수상(산업통상자원부)
@@ -203,9 +204,9 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">2010</h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">2010</h4>
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             국내 최초 PCI Interface Type의 Storage Board SSD
@@ -219,9 +220,9 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">1996</h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">1996</h4>
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? '회사 설립' : 'Company established'}
                       </p>
                     </div>
@@ -231,18 +232,18 @@ export default function FourSection({ currentSection }: SectionProps) {
             </div>
 
             {/* Partners Column */}
-            <div className="w-[330px] lg:w-[330px] mx-auto">
-              <div className="item-history border-r border-gray-500 pr-8">
-                <div className="year mb-6">
-                  <h3 className="text-4xl font-bold text-black mb-4 ml-3">Partners</h3>
+            <div className="w-[280px] sm:w-[320px] lg:w-[330px] flex-shrink-0 lg:mx-auto">
+              <div className="item-history border-r border-gray-500 pr-4 lg:pr-8">
+                <div className="year mb-4 lg:mb-6">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-2 lg:mb-4 ml-2 lg:ml-3">Partners</h3>
                 </div>
-                <div className="h-[320px] overflow-y-auto">
-                  <div className="item-box space-y-6">
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">
+                <div className="h-[280px] sm:h-[300px] lg:h-[320px] overflow-y-auto">
+                  <div className="item-box space-y-4 lg:space-y-6">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">
                         {language === 'KR' ? '1000여개 정부 관련 기업' : '1000 corporate Partners'}
                       </h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             청와대, 한국수력원자력, 대한민국 국방부, 군포시,
@@ -280,11 +281,11 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">
                         {language === 'KR' ? '250여개 교육 관련 기업' : '250 Additional corporate Partners'}
                       </h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             카이스트한국과학기술원, 서울대학교, 동국대학교,
@@ -317,11 +318,11 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">
                         {language === 'KR' ? '120여개 제조 관련 기업' : '120 Manufacturing Partners'}
                       </h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             삼성토탈, 삼성SDS, LS산전, 한화시스템,
@@ -337,11 +338,11 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">
                         {language === 'KR' ? '350여개 방송 관련 기업' : '350 Broadcasting Partners'}
                       </h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             중앙일보씨앤씨, DBS동아방송, KCTV, 전자신문,
@@ -357,11 +358,11 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">
                         {language === 'KR' ? '50여개 금융, 통신 관련 기업' : '50 Financial & Telecom Partners'}
                       </h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             현대증권, 삼성화재, MG새마을금고, KDB산업은행,
@@ -395,18 +396,18 @@ export default function FourSection({ currentSection }: SectionProps) {
             </div>
 
             {/* Patents Column */}
-            <div className="w-[330px] lg:w-[330px] mx-auto">
-              <div className="item-history border-r border-gray-500 pr-8">
-                <div className="year mb-6">
-                  <h3 className="text-4xl font-bold text-black mb-4 ml-3">Patents</h3>
+            <div className="w-[280px] sm:w-[320px] lg:w-[330px] flex-shrink-0 lg:mx-auto">
+              <div className="item-history border-r border-gray-500 pr-4 lg:pr-8">
+                <div className="year mb-4 lg:mb-6">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-2 lg:mb-4 ml-2 lg:ml-3">Patents</h3>
                 </div>
-                <div className="h-[320px] overflow-y-auto">
-                  <div className="item-box space-y-6">
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">
+                <div className="h-[280px] sm:h-[300px] lg:h-[320px] overflow-y-auto">
+                  <div className="item-box space-y-4 lg:space-y-6">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">
                         {language === 'KR' ? '고속데이터 입출력 반도체 칩' : 'High-speed data I/O semiconductor Chip'}
                       </h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             FPGA/ CPLD/ ASIC 설계 제작 기술, TPU개발 능력 보유
@@ -419,11 +420,11 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">
                         {language === 'KR' ? '지능형 패턴분석 알고리즘' : 'Intelligent Pattern Analysis Algorithm'}
                       </h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             데이터 패턴 분석에 따른 Hybrid 캐시 알고리즘
@@ -435,11 +436,11 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">
                         {language === 'KR' ? 'OS 및 SSD 최적화' : 'OS and SSD optimization'}
                       </h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             OS에 따른 디바이스 드라이버 최적화 기술,
@@ -460,18 +461,18 @@ export default function FourSection({ currentSection }: SectionProps) {
             </div>
 
             {/* Awards Column */}
-            <div className="w-[330px] lg:w-[330px] mx-auto">
-              <div className="item-history pr-8">
-                <div className="year mb-6">
-                  <h3 className="text-4xl font-bold text-black mb-4 ml-3">Awards</h3>
+            <div className="w-[280px] sm:w-[320px] lg:w-[330px] flex-shrink-0 lg:mx-auto">
+              <div className="item-history pr-4 lg:pr-8">
+                <div className="year mb-4 lg:mb-6">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-2 lg:mb-4 ml-2 lg:ml-3">Awards</h3>
                 </div>
-                <div className="h-[320px] overflow-y-auto">
-                  <div className="item-box space-y-6">
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">
+                <div className="h-[280px] sm:h-[300px] lg:h-[320px] overflow-y-auto">
+                  <div className="item-box space-y-4 lg:space-y-6">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">
                         {language === 'KR' ? '대한민국 특허 대상  세종대왕상 수상' : 'Awarded the Sejong Award at the KR Patent Awards'}
                       </h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             뛰어난 성능과 에너지 절약 기술로 국내 최고
@@ -486,11 +487,11 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">
                         {language === 'KR' ? '대한민국 우수제품지정증서 인증' : 'Certified by Korea Excellent Product Designation'}
                       </h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             고성능 시스템 품질을 인정 받은 국내 유일의
@@ -506,11 +507,11 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">
                         {language === 'KR' ? '대한민국 녹색기술인증서 인증' : 'Korean Green Technology Certificate'}
                       </h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             최고 성능 및 최대 효율을 자랑하는 환경친화적
@@ -525,11 +526,11 @@ export default function FourSection({ currentSection }: SectionProps) {
                         )}
                       </p>
                     </div>
-                    <div className="pl-4">
-                      <h4 className="text-[13px] font-semibold text-black mb-2">
+                    <div className="pl-2 lg:pl-4">
+                      <h4 className="text-xs sm:text-sm lg:text-[13px] font-semibold text-black mb-1 lg:mb-2">
                         {language === 'KR' ? '대한민국 TPC-C 인증' : 'Korea TPC-C Certification'}
                       </h4>
-                      <p className="text-[13px] text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm lg:text-[13px] text-gray-700 leading-relaxed">
                         {language === 'KR' ? (
                           <>
                             국내 최초 국제 공인 TPC-C인증 받아 인메모리 DB를

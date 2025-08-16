@@ -60,12 +60,8 @@ export default function FirstSection({ currentSection }: SectionProps) {
   return (
     <section 
       id="section1" 
-      className="section min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="section min-h-screen flex items-center justify-center relative overflow-hidden bg-cover bg-center bg-no-repeat md:bg-[url('/Images/hero.png')]"
       style={{
-        backgroundImage: 'url(/Images/hero.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
         scrollbarWidth: 'none',
         msOverflowStyle: 'none'
       }}
@@ -73,7 +69,7 @@ export default function FirstSection({ currentSection }: SectionProps) {
       <div className="absolute inset-0 bg-black/20 md:bg-transparent"></div>
       
       <motion.div 
-        className="relative z-10 container px-2 mt-24 md:mt-32 lg:mt-40 xl:mt-56 2xl:mt-72 text-left bg-opacity-50 rounded-lg max-w-screen-2xl"
+        className="relative z-10 container px-2 mx-4 md:mx-0 xl:mt-72  text-left bg-opacity-50 rounded-lg max-w-screen-2xl"
         animate={controls}
         variants={containerVariants}
       >

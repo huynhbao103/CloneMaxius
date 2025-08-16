@@ -85,6 +85,7 @@ body::-webkit-scrollbar {
   position: relative;
   width: 100vw;
 }
+
 /* Scroll snapping for sections */
 .scroll-container {
   scroll-snap-type: y mandatory;
@@ -98,9 +99,47 @@ body::-webkit-scrollbar {
 section, .section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  min-height: 100vh;
-  width: 100%;
-  position: relative;
+}
+
+/* Slider specific styles */
+.carousel-container {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 1024px) {
+  .carousel-container {
+    scroll-snap-type: x mandatory;
+  }
+  
+  .carousel-container > div > div {
+    scroll-snap-align: start;
+  }
+}
+
+/* Smooth scrolling for mobile */
+@media (max-width: 1024px) {
+  .carousel-container {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Hide scrollbar for all browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
 }
 
 /* Ensure navbar is always on top */
