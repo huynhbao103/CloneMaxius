@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Header() {
@@ -21,7 +22,7 @@ export default function Header() {
       const containerHeight = scrollContainer.clientHeight;
       const currentIndex = Math.round(scrollTop / containerHeight);
       
-      const sections = ['hero', 'about', 'features', 'contact', 'footer'];
+      const sections = ['hero', 'about', 'features', 'story', 'contact'];
       if (currentIndex >= 0 && currentIndex < sections.length) {
         setCurrentSection(sections[currentIndex]);
       }
@@ -84,23 +85,31 @@ export default function Header() {
     <>
       <header className="fixed w-full top-0 left-0 right-0 z-[10000] bg-transparent">
         <div className="w-full h-full flex justify-between items-center">
-          <div className={`w-full h-full mx-[100px] my-[50px] font-bold text-[20px] flex justify-start items-center transition-colors duration-300 ${
-            currentSection === 'hero' ? 'text-black' : 'text-white'
-          }`}>
+          <motion.div 
+            className={`w-full h-full mx-[100px] my-[50px] font-bold text-[20px] flex justify-start items-center transition-colors duration-300 ${
+              currentSection === 'hero' || currentSection === 'story' ? 'text-black' : 'text-white'
+            }`}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             MAXIUS
-          </div>
+          </motion.div>
           <div className="w-full h-full mr-[100px] flex justify-end items-center">
             <div className="flex flex-col items-center gap-2 text-[20px]">
               {/* Animated Menu Button */}
-              <button
+              <motion.button
                 onClick={() => setIsOpen(!isOpen)}
                 className="relative w-[50px] h-[50px] flex items-center justify-center"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
               >
                 <div className="relative w-8 h-8">
                   {/* FiMenu Icon */}
                   <FiMenu 
                     className={`absolute inset-0 transition-all duration-300 ease-in-out stroke-1 ${
-                      isOpen ? 'opacity-0 rotate-90 scale-75 text-white' : 'opacity-100 rotate-0 scale-100 transition-colors duration-300 ' + (currentSection === 'hero' ? 'text-black hover:text-gray-700' : 'text-white hover:text-gray-300')
+                      isOpen ? 'opacity-0 rotate-90 scale-75 text-white' : 'opacity-100 rotate-0 scale-100 transition-colors duration-300 ' + (currentSection === 'hero' || currentSection === 'story' ? 'text-black hover:text-gray-700' : 'text-white hover:text-gray-300')
                     }`}
                     size={48}
                     strokeWidth={1}
@@ -114,16 +123,21 @@ export default function Header() {
                     strokeWidth={1}
                   />
                 </div>
-              </button>
+              </motion.button>
 
               {/* Language Switcher */}
-              <div className="flex items-center mt-[10px] text-6xl space-x-2">
+              <motion.div 
+                className="flex items-center mt-[10px] text-6xl space-x-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              >
                 <button
                   onClick={() => setLanguage('EN')}
                   className={`text-2xl transition-colors mr-[10px] navbar-text-ultra-thin-force ${
                     isOpen
                       ? language === 'EN' ? 'text-[#ff9933]' : 'text-gray-300 hover:text-[#ff9933]'
-                      : language === 'EN' ? 'text-[#ff9933]' : (currentSection === 'hero' ? 'text-black hover:text-[#ff9933]' : 'text-white hover:text-[#ff9933]')
+                      : language === 'EN' ? 'text-[#ff9933]' : (currentSection === 'hero' || currentSection === 'story' ? 'text-black hover:text-[#ff9933]' : 'text-white hover:text-[#ff9933]')
                   }`}
                 >
                   EN
@@ -133,12 +147,12 @@ export default function Header() {
                   className={`text-2xl transition-colors navbar-text-thin ${
                     isOpen
                       ? language === 'KR' ? 'text-[#ff9933]' : 'text-gray-300 hover:text-[#ff9933]'
-                      : language === 'KR' ? 'text-[#ff9933]' : (currentSection === 'hero' ? 'text-black hover:text-[#ff9933]' : 'text-white hover:text-[#ff9933]')
+                      : language === 'KR' ? 'text-[#ff9933]' : (currentSection === 'hero' || currentSection === 'story' ? 'text-black hover:text-[#ff9933]' : 'text-white hover:text-[#ff9933]')
                   }`}
                 >
                   KR
                 </button>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -149,11 +163,11 @@ export default function Header() {
         <>
           {/* Overlay */}
           <div
-            className="fixed inset-0  transition-opacity duration-300"
+            className="fixed inset-0 bg-black/50 transition-opacity duration-300"
             onClick={() => setIsOpen(false)}
           />
 
-          <aside
+          <motion.aside
             className="fixed top-0 h-screen w-[530px] z-[9999] shadow-2xl overflow-hidden"
             style={{ 
               right: 0,
@@ -162,6 +176,10 @@ export default function Header() {
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat'
             }}
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             
                          {/* Menu Items */}
@@ -252,7 +270,7 @@ export default function Header() {
                </div>
              </div>
            
-           </aside>
+           </motion.aside>
         </>
       )}
     </>
