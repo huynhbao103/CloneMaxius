@@ -65,7 +65,26 @@ body::-webkit-scrollbar {
   background-repeat: no-repeat;
   background-attachment: scroll;
 }
-
+.bg-features{
+  background-image: url('/Images/features.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+.bg-contact{
+  background-image: url('/Images/contact.png');
+  align-items: center;
+  background-color: #222;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  background-size: 110vw 110vh;
+  display: flex;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  width: 100vw;
+}
 /* Scroll snapping for sections */
 .scroll-container {
   scroll-snap-type: y mandatory;
