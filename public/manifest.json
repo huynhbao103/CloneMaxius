@@ -1,0 +1,50 @@
+{
+  "name": "MAXIUS",
+  "short_name": "MAXIUS",
+  "description": "MAXIUS is the leading self-developed semiconductor company specializing in High-Performance Servers, IPFS Data Center solutions, Blockchain technology consulting, and innovative semiconductor solutions for modern businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a2a59",
+  "theme_color": "#1a2a59",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/Images/hero.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Images/hero.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "technology"],
+  "screenshots": [
+    {
+      "src": "/Images/hero.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
+}
