@@ -62,7 +62,7 @@ const FiveSection = ({ currentSection }: SectionProps) => {
     >
       {/* Abstract Background Pattern */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[url('/Images/contact-bg.png')] bg-cover bg-center bg-no-repeat"></div>
+        <div className="absolute inset-0"></div>
       </div>
       
       {/* Content Container */}

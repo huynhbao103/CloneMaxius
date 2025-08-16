@@ -110,7 +110,7 @@ export default function Home() {
       </div>
       
       
-      <div className="fixed right-25 top-1/2 transform -translate-y-1/2 z-50 space-y-1">
+      <div className="fixed sm:right-25 right-5 top-1/2 transform -translate-y-1/2 z-50 space-y-1">
   {sections.map((section, index) => (
     <div className="flex flex-col items-end group relative" key={section.id}>
       <button

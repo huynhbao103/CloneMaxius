@@ -86,7 +86,7 @@ export default function Header() {
       <header className="fixed w-full top-0 left-0 right-0 z-[10000] bg-transparent">
         <div className="w-full h-full flex justify-between items-center">
           <motion.div 
-            className={`w-full h-full mx-[100px] my-[50px] font-bold text-[20px] flex justify-start items-center transition-colors duration-300 ${
+            className={`w-full h-full mx-4 sm:mx-8 md:mx-[100px] my-[25px] sm:my-[35px] md:my-[50px] font-bold text-base sm:text-lg md:text-[20px] flex justify-start items-center transition-colors duration-300 ${
               currentSection === 'hero' || currentSection === 'story' ? 'text-black' : 'text-white'
             }`}
             initial={{ opacity: 0, x: -50 }}
@@ -95,17 +95,17 @@ export default function Header() {
           >
             MAXIUS
           </motion.div>
-          <div className="w-full h-full mr-[100px] flex justify-end items-center">
-            <div className="flex flex-col items-center gap-2 text-[20px]">
+          <div className="w-full h-full mr-4 sm:mr-8 md:mr-[100px] flex justify-end items-center">
+            <div className="flex flex-col items-center gap-1 sm:gap-2 text-base sm:text-lg md:text-[20px]">
               {/* Animated Menu Button */}
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="relative w-[50px] h-[50px] flex items-center justify-center"
+                className="relative w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] md:w-[50px] md:h-[50px] flex items-center justify-center"
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <div className="relative w-8 h-8">
+                <div className="relative w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
                   {/* FiMenu Icon */}
                   <FiMenu 
                     className={`absolute inset-0 transition-all duration-300 ease-in-out stroke-1 ${
@@ -127,14 +127,14 @@ export default function Header() {
 
               {/* Language Switcher */}
               <motion.div 
-                className="flex items-center mt-[10px] text-6xl space-x-2"
+                className="flex items-center mt-[8px] sm:mt-[10px] text-4xl sm:text-5xl md:text-6xl space-x-1 sm:space-x-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               >
                 <button
                   onClick={() => setLanguage('EN')}
-                  className={`text-2xl transition-colors mr-[10px] navbar-text-ultra-thin-force ${
+                  className={`text-lg sm:text-xl md:text-2xl transition-colors mr-[8px] sm:mr-[10px] navbar-text-ultra-thin-force ${
                     isOpen
                       ? language === 'EN' ? 'text-[#ff9933]' : 'text-gray-300 hover:text-[#ff9933]'
                       : language === 'EN' ? 'text-[#ff9933]' : (currentSection === 'hero' || currentSection === 'story' ? 'text-black hover:text-[#ff9933]' : 'text-white hover:text-[#ff9933]')
@@ -144,7 +144,7 @@ export default function Header() {
                 </button>
                 <button
                   onClick={() => setLanguage('KR')}
-                  className={`text-2xl transition-colors navbar-text-thin ${
+                  className={`text-lg sm:text-xl md:text-2xl transition-colors navbar-text-thin ${
                     isOpen
                       ? language === 'KR' ? 'text-[#ff9933]' : 'text-gray-300 hover:text-[#ff9933]'
                       : language === 'KR' ? 'text-[#ff9933]' : (currentSection === 'hero' || currentSection === 'story' ? 'text-black hover:text-[#ff9933]' : 'text-white hover:text-[#ff9933]')
@@ -168,7 +168,7 @@ export default function Header() {
           />
 
           <motion.aside
-            className="fixed top-0 h-screen w-[530px] z-[9999] shadow-2xl overflow-hidden"
+            className="fixed top-0 h-screen w-full sm:w-[400px] md:w-[530px] z-[9999] shadow-2xl overflow-hidden"
             style={{ 
               right: 0,
               backgroundImage: 'url(/Images/navbar.png)',
@@ -182,95 +182,90 @@ export default function Header() {
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             
-                         {/* Menu Items */}
-             <div className="relative px-10 z-20 pt-[150px] pr-[50px] pb-[50px] pl-[32px]">
-               {menuItems.map((item, index) => (
-                 <div key={index} className="mb-6">
-                   <button
-                     onClick={() => setActiveSubmenu(activeSubmenu === item.label ? null : item.label)}
-                                                                                                                                                                                                                                                                   className={`flex items-center justify-between w-full text-3xl md:text-4xl lg:text-3xl xl:text-4xl transition-colors cursor-pointer navbar-text-thin ${
-                            index === 0 ? 'text-[#f93]' : activeSubmenu === item.label ? 'text-[#f93]' : 'text-white'
-                          }`}
-                     style={{ 
-                       background: 'none',
-                       border: 'none',
-                       padding: '0',
-                       textAlign: 'left'
-                     }}
-                   >
-                     <span>
-                       {language === 'EN' ? item.label : item.label}
-                     </span>
-                  
-                   </button>
-                   {activeSubmenu === item.label && (
-                     <div className="mt-1 ml-4">
-                       {item.submenu?.map((subItem, subIndex) => (
-                         <Link
-                           key={subIndex}
-                           href={subItem.href}
-                           onClick={() => setIsOpen(false)}
-                        className="block text-sm md:text-base px-[10px] pt-[8px] text-white transition-colors mb-1 cursor-pointer navbar-text-thin"
-                         >
-                           {language === 'EN' ? subItem.label : subItem.labelKR}
-                         </Link>
-                       ))}
-                     </div>
-                   )}
-                 </div>
-               ))}
-                          </div>
-             
-             {/* Contact Information */}
-             <div className="absolute bottom-0 left-0 right-0 px-10 pb-10">
-               {/* Separator Line */}
-               <div className="w-full h-px bg-white mb-8"></div>
-               
-               {/* Contact Details */}
-               <div className="space-y-4 text-white/80">
-                 {/* Address */}
-                 <div className="text-[13px] leading-relaxed">
-                   <p>   {language === 'EN' ? '5F 12-30, Simin-daero 327beon-gil, Dongan-gu, Anyang-si, Gyeonggi-do, Republic of Korea' : '경기도 안양시 동안구 시민대로327번길 12-30 5층'}</p>
-                 
-                 
-               
-                   <p>Tel 02. 851. 2662 / Fax 02. 851. 2655</p>
-                 </div>
-                 
-                 {/* Map Link */}
-                 <div className="text-[13px]">
-                   <Link 
-                     href="/" 
-                     className="text-white/80 hover:text-[#ff9933] transition-colors cursor-pointer"
-                     onClick={() => setIsOpen(false)}
-                   >
-                     View Map
-                   </Link>
-                 </div>
-                 
-                 {/* Company Email */}
-                 <div className="text-[13px]">
-                   <p className='flex flex-col'>
-                     Company.{" "}
-                     <a href="mailto:support@maxius.io" className=" transition-colors">
-                       support@maxius.io
-                     </a>
-                   </p>
-                 </div>
-                 
-                 {/* Technical Support Email */}
-                 <div className="text-[13px]">
-                   <p className='flex flex-col'>
-                     Technical support.{" "}
-                     <a href="mailto:support@maxius.io" className="transition-colors">
-                       support@maxius.io
-                     </a>
-                   </p>
-                 </div>
-               </div>
-             </div>
-           
-           </motion.aside>
+            {/* Menu Items */}
+            <div className="relative px-4 sm:px-6 md:px-10 z-20 pt-[100px] sm:pt-[120px] md:pt-[150px] pr-[20px] sm:pr-[30px] md:pr-[50px] pb-[30px] sm:pb-[40px] md:pb-[50px] pl-[16px] sm:pl-[24px] md:pl-[32px]">
+              {menuItems.map((item, index) => (
+                <div key={index} className="mb-4 sm:mb-5 md:mb-6">
+                  <button
+                    onClick={() => setActiveSubmenu(activeSubmenu === item.label ? null : item.label)}
+                    className={`flex items-center justify-between w-full text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl transition-colors cursor-pointer navbar-text-thin ${
+                      index === 0 ? 'text-[#f93]' : activeSubmenu === item.label ? 'text-[#f93]' : 'text-white'
+                    }`}
+                    style={{ 
+                      background: 'none',
+                      border: 'none',
+                      padding: '0',
+                      textAlign: 'left'
+                    }}
+                  >
+                    <span>
+                      {language === 'EN' ? item.label : item.label}
+                    </span>
+                  </button>
+                  {activeSubmenu === item.label && (
+                    <div className="mt-1 ml-2 sm:ml-3 md:ml-4">
+                      {item.submenu?.map((subItem, subIndex) => (
+                        <Link
+                          key={subIndex}
+                          href={subItem.href}
+                          onClick={() => setIsOpen(false)}
+                          className="block text-xs sm:text-sm md:text-base px-[8px] sm:px-[10px] pt-[6px] sm:pt-[8px] text-white transition-colors mb-1 cursor-pointer navbar-text-thin"
+                        >
+                          {language === 'EN' ? subItem.label : subItem.labelKR}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+            
+            {/* Contact Information */}
+            <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-6 md:px-10 pb-6 sm:pb-8 md:pb-10">
+              {/* Separator Line */}
+              <div className="w-full h-px bg-white mb-6 sm:mb-7 md:mb-8"></div>
+              
+              {/* Contact Details */}
+              <div className="space-y-3 sm:space-y-4 text-white/80">
+                {/* Address */}
+                <div className="text-xs sm:text-sm md:text-[13px] leading-relaxed">
+                  <p>{language === 'EN' ? '5F 12-30, Simin-daero 327beon-gil, Dongan-gu, Anyang-si, Gyeonggi-do, Republic of Korea' : '경기도 안양시 동안구 시민대로327번길 12-30 5층'}</p>
+                  <p>Tel 02. 851. 2662 / Fax 02. 851. 2655</p>
+                </div>
+                
+                {/* Map Link */}
+                <div className="text-xs sm:text-sm md:text-[13px]">
+                  <Link 
+                    href="/" 
+                    className="text-white/80 hover:text-[#ff9933] transition-colors cursor-pointer"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    View Map
+                  </Link>
+                </div>
+                
+                {/* Company Email */}
+                <div className="text-xs sm:text-sm md:text-[13px]">
+                  <p className='flex flex-col'>
+                    Company.{" "}
+                    <a href="mailto:support@maxius.io" className="transition-colors">
+                      support@maxius.io
+                    </a>
+                  </p>
+                </div>
+                
+                {/* Technical Support Email */}
+                <div className="text-xs sm:text-sm md:text-[13px]">
+                  <p className='flex flex-col'>
+                    Technical support.{" "}
+                    <a href="mailto:support@maxius.io" className="transition-colors">
+                      support@maxius.io
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.aside>
         </>
       )}
     </>
