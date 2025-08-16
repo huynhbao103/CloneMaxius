@@ -13,17 +13,17 @@ export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
 
       const sections = useMemo(() => [
-      { id: 'firstPage', name: 'firstPage' },
-      { id: 'secondPage', name: 'secondPage' },
-      { id: 'thirdPage', name: 'thirdPage' },
-      { id: 'fourthPage', name: 'fourthPage' },
-      { id: 'fifthPage', name: 'fifthPage' },
+      { id: 'section1', name: 'section1' },
+      { id: 'section2', name: 'section2' },
+      { id: 'section3', name: 'section3' },
+      { id: 'section4', name: 'section4' },
+      { id: 'section5', name: 'section5' },
 
     ], []);
 
   useEffect(() => {
     // Get initial section from URL hash
-    const hash = window.location.hash.slice(1) || 'firstPage';
+    const hash = window.location.hash.slice(1) || 'section1';
     const sectionIndex = sections.findIndex(s => s.name === hash);
     if (sectionIndex !== -1) {
       setCurrentSection(sectionIndex);
@@ -54,7 +54,7 @@ export default function Home() {
     };
 
     const handleHashChange = () => {
-      const hash = window.location.hash.slice(1) || 'firstPage';
+      const hash = window.location.hash.slice(1) || 'section1';
       const sectionIndex = sections.findIndex(s => s.name === hash);
       if (sectionIndex !== -1 && sectionIndex !== currentSection) {
         setCurrentSection(sectionIndex);
@@ -110,7 +110,7 @@ export default function Home() {
       </div>
       
       
-      <div className="fixed sm:right-25 right-5 top-1/2 transform -translate-y-1/2 z-50 space-y-1">
+      <div className="fixed sm:right-20 right-5 top-1/2 transform -translate-y-1/2 z-50 space-y-1">
   {sections.map((section, index) => (
     <div className="flex flex-col items-end group relative" key={section.id}>
       <button
