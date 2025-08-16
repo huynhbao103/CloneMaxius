@@ -77,7 +77,7 @@ export default function Header() {
     { 
       label: 'Contact', 
    
-      href: '#contact' 
+      href: '/Contact' 
     },
   ];
 
@@ -93,7 +93,7 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            MAXIUS
+            <Link href="/#section1" className='cursor-pointer'> MAXIUS </Link>
           </motion.div>
           <div className="w-full h-full mr-4 sm:mr-8 md:mr-[100px] flex justify-end items-center">
             <div className="flex flex-col items-center gap-1 sm:gap-2 text-base sm:text-lg md:text-[20px]">
@@ -108,7 +108,7 @@ export default function Header() {
                 <div className="relative w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
                   {/* FiMenu Icon */}
                   <FiMenu 
-                    className={`absolute inset-0 transition-all duration-300 ease-in-out stroke-1 ${
+                    className={`absolute inset-0 cursor-pointer transition-all duration-300 ease-in-out stroke-1 ${
                       isOpen ? 'opacity-0 rotate-90 scale-75 text-white' : 'opacity-100 rotate-0 scale-100 transition-colors duration-300 ' + (currentSection === 'hero' || currentSection === 'story' ? 'text-black hover:text-gray-700' : 'text-white hover:text-gray-300')
                     }`}
                     size={48}
@@ -116,7 +116,7 @@ export default function Header() {
                   />
                   {/* FiX Icon */}
                   <FiX 
-                    className={`absolute inset-0 transition-all duration-300 ease-in-out stroke-1 ${
+                    className={`absolute inset-0 cursor-pointer transition-all duration-300 ease-in-out stroke-1 ${
                       isOpen ? 'opacity-100 rotate-0 scale-100 text-white' : 'opacity-0 rotate-90 scale-75 text-white'
                     }`}
                     size={48}
@@ -134,7 +134,7 @@ export default function Header() {
               >
                 <button
                   onClick={() => setLanguage('EN')}
-                  className={`text-lg sm:text-xl md:text-2xl transition-colors mr-[8px] sm:mr-[10px] navbar-text-ultra-thin-force ${
+                  className={`text-lg sm:text-xl md:text-2xl transition-colors mr-[8px] sm:mr-[10px] navbar-text-ultra-thin-force cursor-pointer ${
                     isOpen
                       ? language === 'EN' ? 'text-[#ff9933]' : 'text-gray-300 hover:text-[#ff9933]'
                       : language === 'EN' ? 'text-[#ff9933]' : (currentSection === 'hero' || currentSection === 'story' ? 'text-black hover:text-[#ff9933]' : 'text-white hover:text-[#ff9933]')
@@ -144,10 +144,10 @@ export default function Header() {
                 </button>
                 <button
                   onClick={() => setLanguage('KR')}
-                  className={`text-lg sm:text-xl md:text-2xl transition-colors navbar-text-thin ${
+                  className={`text-lg sm:text-xl md:text-2xl transition-colors navbar-text-thin cursor-pointer ${
                     isOpen
                       ? language === 'KR' ? 'text-[#ff9933]' : 'text-gray-300 hover:text-[#ff9933]'
-                      : language === 'KR' ? 'text-[#ff9933]' : (currentSection === 'hero' || currentSection === 'story' ? 'text-black hover:text-[#ff9933]' : 'text-white hover:text-[#ff9933]')
+                      : language === 'KR' ? 'text-black hover:text-[#ff9933]' : (currentSection === 'hero' || currentSection === 'story' ? 'text-black hover:text-[#ff9933]' : 'text-white hover:text-[#ff9933]')
                   }`}
                 >
                   KR
@@ -186,25 +186,40 @@ export default function Header() {
             <div className="relative px-4 sm:px-6 md:px-10 z-20 pt-[100px] sm:pt-[120px] md:pt-[150px] pr-[20px] sm:pr-[30px] md:pr-[50px] pb-[30px] sm:pb-[40px] md:pb-[50px] pl-[16px] sm:pl-[24px] md:pl-[32px]">
               {menuItems.map((item, index) => (
                 <div key={index} className="mb-4 sm:mb-5 md:mb-6">
-                  <button
-                    onClick={() => setActiveSubmenu(activeSubmenu === item.label ? null : item.label)}
-                    className={`flex items-center justify-between w-full text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl transition-colors cursor-pointer navbar-text-thin ${
-                      index === 0 ? 'text-[#f93]' : activeSubmenu === item.label ? 'text-[#f93]' : 'text-white'
-                    }`}
-                    style={{ 
-                      background: 'none',
-                      border: 'none',
-                      padding: '0',
-                      textAlign: 'left'
-                    }}
-                  >
-                    <span>
+                  {item.submenu ? (
+                    // Item with submenu
+                    <button
+                      onClick={() => setActiveSubmenu(activeSubmenu === item.label ? null : item.label)}
+                      className={`flex items-center justify-between w-full text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl transition-colors cursor-pointer navbar-text-thin ${
+                        index === 0 ? 'text-[#f93]' : activeSubmenu === item.label ? 'text-[#f93]' : 'text-white'
+                      }`}
+                      style={{ 
+                        background: 'none',
+                        border: 'none',
+                        padding: '0',
+                        textAlign: 'left'
+                      }}
+                    >
+                      <span>
+                        {language === 'EN' ? item.label : item.label}
+                      </span>
+                    </button>
+                  ) : (
+                    // Direct link item (like Contact)
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`block text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl transition-colors cursor-pointer navbar-text-thin ${
+                        index === 0 ? 'text-[#f93]' : 'text-white'
+                      }`}
+                    >
                       {language === 'EN' ? item.label : item.label}
-                    </span>
-                  </button>
-                  {activeSubmenu === item.label && (
+                    </Link>
+                  )}
+                  
+                  {item.submenu && activeSubmenu === item.label && (
                     <div className="mt-1 ml-2 sm:ml-3 md:ml-4">
-                      {item.submenu?.map((subItem, subIndex) => (
+                      {item.submenu.map((subItem, subIndex) => (
                         <Link
                           key={subIndex}
                           href={subItem.href}

@@ -85,6 +85,13 @@ body::-webkit-scrollbar {
   position: relative;
   width: 100vw;
 }
+.bg-nav{
+  background-image: url('/Images/navbar.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
 
 /* Scroll snapping for sections */
 .scroll-container {

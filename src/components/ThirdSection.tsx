@@ -134,7 +134,7 @@ const ThirdSection: React.FC<SectionProps> = ({ currentSection }) => {
                  </p>
                 ):(
                   <p className="text-sm md:text-base font-extralight leading-[27px] text-white opacity-0 group-hover:opacity-100 transition-all duration-300 max-h-0 group-hover:max-h-96 overflow-hidden">
-                    <p >20년 이상의 연구 노하우와 기술력을 기반으로 
+                    20년 이상의 연구 노하우와 기술력을 기반으로 
                       <br />
                       국내 유일의 <span className="text-[#f93]">자체개발 시스템반도체</span> 를 이용하여
                       <br />
@@ -150,7 +150,7 @@ const ThirdSection: React.FC<SectionProps> = ({ currentSection }) => {
                           서비스로 차별된 제품과 Solution을 공급하기
                           <br />
                           위하여 노력하고 있습니다.</p>
-                  </p>
+                 
                 )}
               </div>
             </div>
